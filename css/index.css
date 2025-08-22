@@ -1,5 +1,6 @@
 @import './variables.css';
 @import './fonts.css';
+@import './top-bar.css';
 
 /* Start of Default Styles */
 
@@ -29,7 +30,7 @@ body {
 
 a {
     color: var(--dark-color);
-    transition: all 300ms ease;
+    transition: all 400ms ease;
 }
 
 a:hover {
@@ -41,3 +42,5 @@ i {
 }
 
 /* End of Default Styles */
+
+
