@@ -8,7 +8,7 @@
 *::after,
 *::before {
     box-sizing: inherit;
-    text-decoration: none;
+    text-decoration: none !important;
     list-style: none;
     outline: none;
     border: none;
@@ -242,9 +242,9 @@ margin-top: 0.3rem;
 .landing__searchbar-btn {
     background-color: var(--primary-color);
     position: absolute;
-    left: 0.5rem;
+    left: 0.7rem;
     width: 6rem;
-    top: 0.3rem;
+    top: 0.7rem;
     height: 6rem;
     border-radius: 1rem;
     transition: all 400ms ease;
@@ -292,3 +292,49 @@ margin-top: 0.3rem;
 }
 
 /* End of landing Styles */
+
+/* Start of Latest Courses Styles */
+
+.courses {
+    margin: 4rem 0;
+}
+
+.courses-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.courses-header__right {
+    display: flex;
+    flex-direction: column;
+}
+
+.courses-header__text {
+    color: #9c9c9c;
+    font-size: 1.5rem;
+}
+
+.courses-header__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.courses-header__link:hover {
+    color: var(--white-color);
+}
+
+.courses-header__icon {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* End of Latest Courses Styles */
+
+
+
