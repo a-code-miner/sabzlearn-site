@@ -252,9 +252,10 @@ margin-top: 0.3rem;
 
 .landing__searchbar-btn:hover {
     background-color: var(--white-color);
-    .landing__searchbar-icon {
-        color: var(--primary-color);
-    }
+}
+
+.landing__searchbar-btn:hover .landing__searchbar-icon {
+    color: var(--primary-color);
 }
 
 .landing__searchbar-icon {
