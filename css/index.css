@@ -254,4 +254,31 @@ margin-top: 0.3rem;
     color: var(--white-color);
 }
 
+.landing-status {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.landing-status__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-status__item svg {
+    fill: var(--white-color);
+}
+
+.landing-status__count {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+}
+
+.landing-status__text {
+    font-weight: bold;
+}
+
 /* End of landing Styles */
