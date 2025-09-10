@@ -482,8 +482,29 @@ margin-top: 0.3rem;
 
 /* Start of Popular Courses Styles */
 
-.popular {
+.popular, .presell {
     margin: 5rem 0;
+}
+
+.popular__header, .presell__header {
+    margin-bottom: 3rem;
+}
+
+.popular__slider, .presell__slider {
+    margin-bottom: 3rem;
+}
+
+.popular__slider .course-box, .presell__slider .course-box {
+    margin: 0 1.3rem;
+    box-shadow: 0 0 10px rgba(168, 172, 185, 0.3);
+}
+
+.popular__slider .course-box:hover, .presell__slider .course-box {
+    transform: none;
+}
+
+.swiper-wrapper {
+    height: 40rem;
 }
 
 /* End of Popular Courses Styles */
