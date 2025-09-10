@@ -480,6 +480,14 @@ margin-top: 0.3rem;
 
 /* End of About Us Styles */
 
+/* Start of Popular Courses Styles */
+
+.popular {
+    margin: 5rem 0;
+}
+
+/* End of Popular Courses Styles */
+
 /* Start of Helper Classes */
 
 .title {
