@@ -1,0 +1,40 @@
+/* Start of Default Styles */
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    text-decoration: none !important;
+    list-style: none;
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    line-height: 1.6;
+    font-size: 1.6rem;
+    font-family: var(--primary-font);
+    direction: rtl;
+}
+
+a {
+    color: var(--dark-color);
+    transition: all 400ms ease;
+}
+
+a:hover {
+    color: #1e83f0;
+}
+
+i {
+    user-select: none;
+}
+
+/* End of Default Styles */
