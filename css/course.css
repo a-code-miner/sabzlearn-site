@@ -182,4 +182,45 @@
 /* End of Course Progress Styles */
 
 
+/* Start of Introduction Styles */
+
+.introduction {
+    padding: 3rem;
+    margin: 3rem 0 3rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
+}
+
+.introduction__img {
+    display: block;
+    margin-top: 3rem;
+    border-radius: 1rem;
+}
+
+.introduction__text {
+    margin: 2rem 0 2rem 0;
+    font-size: 1.5rem;
+    color: #7a7a7a;
+}
+
+.introduction__btns {
+    margin-top: 4rem;
+}
+
+.introduction__btns-item {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.introduction__btns-item:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+/* End of Introduction Styles */
+
 
