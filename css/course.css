@@ -478,6 +478,17 @@
     font-size: 1.4rem;
 }
 
+.course-info__topic-title {
+    display: block;
+    color: var(--dark-color);
+    font-size: 1.8rem;
+}
+
+.course-info__topic-text {
+    font-size: 1.5rem;
+    color: #7d7e7f;
+}
+
 /* End of Sidebar Styles */
 
 
