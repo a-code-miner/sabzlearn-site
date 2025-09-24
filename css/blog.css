@@ -11,4 +11,29 @@
 
 
 
+/* Start of Blog Sidebar Styles */
+
+.course-info {
+    overflow: hidden;
+}
+
+.course-info__courses-title {
+    position: relative;
+}
+
+.course-info__courses-title::before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 39px;
+    background-color: var(--primary-color);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 12px;
+    right: -27px;
+    top: -5px;
+    transform: skew(-10deg);
+}
+
+/* Start of Blog Sidebar Styles */
+
 
