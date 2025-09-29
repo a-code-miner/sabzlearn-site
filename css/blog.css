@@ -11,6 +11,51 @@
 
 
 
+
+/* Start of Blog page Article Details */
+
+.article {
+    padding: 2.4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 30px rgba(70, 72, 77, 0.08);
+    margin: 1rem 0 1rem 0;
+}
+
+.article__title {
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    border-bottom: 2px solid #f3f3f3;
+    padding-bottom: 1rem;
+}
+
+.article-header {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.article-header__item {
+    margin-left: 2rem;
+}
+
+.article-header__icon {
+    font-size: 1.7rem;
+    color: #c7c7c7;
+}
+
+.article-header__text {
+    font-size: 1.2rem;
+    color: #8f8f8f;
+}
+
+.article__banner {
+    margin-top: 4rem;
+}
+
+/* end of Blog page Article Details */
+
+
 /* Start of Blog Sidebar Styles */
 
 .course-info {
