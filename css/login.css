@@ -1,0 +1,74 @@
+@import './variables.css';
+@import './fonts.css';
+@import './top-bar.css';
+@import './navbar.css';
+@import './defaults.css';
+@import './footer.css';
+@import './course-box.css';
+@import './helpers.css';
+@import './breadcrumb.css';
+@import './sidebarCoursesBox.css';
+
+
+/* Start of Login-Register Styles */
+
+.login-register {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.login {
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 4rem 0;
+    padding: 2.5rem 2rem 5rem 2rem;
+    box-shadow: 0 6px 20px rgba(168, 172, 185, 0.3);
+    border-bottom: 5px solid #2bce56;
+    width: 50rem;
+    border-radius: 5px;
+}
+
+.login-title {
+    display: block;
+    color: #7b868a;
+    font-size: 2.2rem;
+}
+
+.login-subtitle {
+    font-size: 1.5rem;
+    color: #7b868a;
+    display: block;
+}
+
+.login__new-member {
+    background-color: #f0f2f7;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.login__new-member-text {
+    font-size: 1.4rem;
+    color: #7b868a;
+}
+
+.login__new-member-link {
+    background-color: #a8aaaf;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: var(--white-color);
+    margin-right: 0.7rem;
+}
+
+/* End of Login-Register Styles */
+
+
