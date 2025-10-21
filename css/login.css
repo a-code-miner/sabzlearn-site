@@ -155,6 +155,27 @@
     list-style: disc;
 }
 
+.login-register::before {
+    content: "";
+    position: absolute;
+    top: -5rem;
+    width: 150%;
+    height: 380px;
+    background-color: #2bce56;
+    z-index: -99;
+    transform: rotate(-4deg);
+}
+
+.login-register::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 380px;
+    background-color: rgba(43, 206, 86, 0.6);
+    z-index: -99;
+    transform: rotate(-4deg);
+}
+
 /* End of Login-Register Styles */
 
 
