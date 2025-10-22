@@ -1,6 +1,9 @@
 const $ = document
-
 const landingTitle = $.querySelector('.landing__title')
+const landingCoursesCounter = $.querySelector('#courses-counter')
+const landingMinutesCounter = $.querySelector('#minutes-counter')
+const landingUsersCounter = $.querySelector('#users-counter')
+
 
 
 window.addEventListener('load', () => {
@@ -8,9 +11,12 @@ window.addEventListener('load', () => {
     let typeIndex = 0
 
     typeWriter(landingText, typeIndex)
+    makeCounter(40, landingCoursesCounter)
+    makeCounter(3_320, landingMinutesCounter)
+    makeCounter(3_071, landingUsersCounter)
 })
 
-function typeWriter (text, index) {
+function typeWriter(text, index) {
     if (index < text.length) {
         landingTitle.innerHTML += text[index]
         index++
@@ -19,5 +25,16 @@ function typeWriter (text, index) {
     setTimeout(() => {
         typeWriter(text, index)
     }, 100);
+}
+
+function makeCounter(max, elem) {
+    let coursesCounter = 0
+    const interval = setInterval(() => {
+        if (coursesCounter === max) {
+            clearInterval(interval)
+        }
+        elem.innerHTML = coursesCounter
+        coursesCounter++
+    }, 1)
 }
 
