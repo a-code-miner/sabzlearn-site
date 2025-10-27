@@ -278,6 +278,10 @@ margin-top: 0.3rem;
     font-weight: bold;
 }
 
+.article-card__link-img {
+    width: 100% !important;
+}
+
 .article-card__text {
     color: #898989;
     font-size: 1.2rem;
