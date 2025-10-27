@@ -1,3 +1,5 @@
+import { showSwal } from "./utils.js"
+
 const register = () => {
     const nameInput = document.querySelector('#name')
     const usernameInput = document.querySelector('#username')
@@ -24,23 +26,10 @@ const register = () => {
         .then((res) => {
             console.log(res)
             if (res.status === 201) {
-                Swal.fire({
-                    title: "ثبت نام با موفقیت انجام شد.",
-                    icon: "success",
-                    showConfirmButton: true,
-                    confirmButtonText: "ورود به پنل"
-                })
-                    .then(() => {
-                        // console.log(result) // if user clicked on button it's true otherwise false
-                        location.href = 'index.html'
-                    })
+                showSwal("ثبت نام با موفقیت انجام شد.", "success", true, "ورود به پنل",
+                    () => { location.href = 'index.html' })
             } else if (res.status === 409) {
-                Swal.fire({
-                    title: "نام کاربری یا ایمیل قبلا استفاده شده است.",
-                    icon: "error",
-                    showConfirmButton: true,
-                    confirmButtonText: "تصحیح اطلاعات"
-                })
+                showSwal("نام کاربری یا ایمیل قبلا استفاده شده است.", "error", true, "تصحیح اطلاعات")
             }
         })
         .then(result => console.log(result))
