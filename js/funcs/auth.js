@@ -73,11 +73,19 @@ const login = () => {
         body: JSON.stringify(userInfos)
     })
         .then(response => {
-            console.log(response)
+            if (response.status === 401) {
+                showSwal('کاربری با این مشخصات یافت نشد!', 'error', true, 'تصحیح اطلاعات', () => { })
+            } else if (response.status === 200) {
+                showSwal('با موفقیت وارد شدید.', 'success', true, 'ورود به پنل',
+                    () => {
+                        location.href = 'index.html'
+                    })
+            }
             return response.json()
         })
         .then(result => {
             console.log(result)
+            saveIntoLocalStorage('user', { token: result.accessToken || null })
         })
 }
 
