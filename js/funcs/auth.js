@@ -1,4 +1,4 @@
-import { showSwal } from "./utils.js"
+import { getToken, showSwal } from "./utils.js"
 import { saveIntoLocalStorage } from "./utils.js"
 
 const register = () => {
@@ -89,4 +89,21 @@ const login = () => {
         })
 }
 
-export { register, login }
+const getMe = async () => {
+    const token = getToken()
+
+    if (!token) {
+        return false
+    }
+
+    const response = await fetch(`http://localhost:4000/v1/auth/me`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    const data = await response.json()
+
+    return data
+}
+
+export { register, login, getMe }
