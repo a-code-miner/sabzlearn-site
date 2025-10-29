@@ -44,7 +44,7 @@
     display: block;
 }
 
-.login__new-member {
+.login-box, .register__new-member {
     background-color: #f0f2f7;
     margin: 1.5rem 0;
     border-radius: 5px;
@@ -55,12 +55,12 @@
     padding: 1.5rem 0;
 }
 
-.login__new-member-text {
+.login-box__text, .register__new-member-text {
     font-size: 1.4rem;
     color: #7b868a;
 }
 
-.login__new-member-link {
+.login-box__link, .register__new-member-link {
     background-color: #a8aaaf;
     padding: 0.4rem 0.8rem;
     border-radius: 5px;

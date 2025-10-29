@@ -9,15 +9,29 @@ const showSwal = (title, icon, showConfirmButton, confirmButtonText, callback) =
 }
 
 const saveIntoLocalStorage = (key, value) => {
-    return localStorage.setItem(key, value)
+    return localStorage.setItem(key, JSON.stringify(value))
 }
 
 const getFromLocalStorage = (key) => {
-    return JSON.stringify(localStorage.getItem(key))
+    const raw = localStorage.getItem(key)
+    if (!raw) return null
+    try {
+        return JSON.parse(raw)
+    } catch (e) {
+        // If value is not JSON, return raw string
+        return raw
+    }
 }
 
 const getToken = () => {
-    return JSON.parse(localStorage.getItem('user')).token
+    const raw = localStorage.getItem('user')
+    if (!raw) return null
+    try {
+        const obj = JSON.parse(raw)
+        return obj ? obj.token : null
+    } catch (e) {
+        return null
+    }
 }
 
 export { showSwal, saveIntoLocalStorage, getFromLocalStorage, getToken }
