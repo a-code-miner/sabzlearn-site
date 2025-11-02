@@ -34,4 +34,9 @@ const getToken = () => {
     }
 }
 
-export { showSwal, saveIntoLocalStorage, getFromLocalStorage, getToken }
+const isLogin = () => {
+    const userInfo = getFromLocalStorage('user')
+    return userInfo ? true : false
+}
+
+export { showSwal, saveIntoLocalStorage, getFromLocalStorage, getToken, isLogin }

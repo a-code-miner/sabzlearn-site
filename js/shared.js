@@ -1,8 +1,5 @@
-import { getMe } from "./funcs/auth.js";
+import { showUsernameOnNavbar } from './funcs/shared.js'
 
 window.addEventListener('load', () => {
-    getMe()
-        .then(data => {
-            console.log(data)
-        })
+    showUsernameOnNavbar()
 })
