@@ -48,7 +48,7 @@ const getAndShowAllCourses = async () => {
                 <div class="col-4">
                             <div class="course-box">
                                 <a href="#">
-                                    <img src="images/courses/jango.png" alt="Course Image" class="course-box__img">
+                                    <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Image" class="course-box__img">
                                 </a>
                                 <div class="course-box__main">
                                     <a class="course-box__title" href="#">${course.name}</a>
@@ -82,6 +82,68 @@ const getAndShowAllCourses = async () => {
     return courses
 }
 
-export { showUsernameOnNavbar, renderTopBarMenus, getAndShowAllCourses }
+const getAndShowAllPopularCourses = async () => {
+    const popularCoursesWrapper = document.querySelector('#popular-courses-wrapper')
+    const response = await fetch(`http://localhost:4000/v1/courses/popular`)
+    const popularCourses = await response.json()
+    popularCourses.forEach(course => {
+        popularCoursesWrapper.insertAdjacentHTML('beforeend', `
+            <div class="swiper-slide">
+                            <div class="course-box">
+                                <a href="#">
+                                    <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Image"
+                                        class="course-box__img">
+                                </a>
+                                <div class="course-box__main">
+                                    <a class="course-box__title" href="#">${course.name}</a>
+                                    <div class="course-box__rating-teacher">
+                                        <div class="course-box__teacher">
+                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
+                                            <a href="#" class="course-box__teacher-link">${course.creator}</a>
+                                        </div>
+                                        <div class="course-box__rating">
+                                            <img src="images/svgs/star.svg" alt="rating" class="course-box__star">
+                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                        </div>
+                                    </div>
+                                    <div class="course-box__status">
+                                        <div class="course-box__users">
+                                            <i class="fas fa-users course-box__users-icon"></i>
+                                            <span class="course-box__users-count">${course.registers}</span>
+                                        </div>
+                                        <span class="course-box__price">${course.price === 0 ? 'رایگان' : course.price.toLocaleString()}</span>
+                                    </div>
+                                </div>
+                                <div class="course-box__footer">
+                                    <a href="#" class="course-box__footer-link">مشاهده اطلاعات</a>
+                                    <i class="fas fa-arrow-left course-box__footer-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+            `)
+    })
+
+    // ✅ بعد از render، Swiper را initialize کن
+    new Swiper('.swiper', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+        },
+        breakpoints: {
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+        },
+    })
+
+    return popularCourses
+}
+
+export { showUsernameOnNavbar, renderTopBarMenus, getAndShowAllCourses, getAndShowAllPopularCourses }
 
 
