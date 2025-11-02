@@ -279,7 +279,13 @@ margin-top: 0.3rem;
 }
 
 .article-card__link-img {
-    width: 100% !important;
+    width: 100%;
+}
+
+.article-card__img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
 }
 
 .article-card__text {
