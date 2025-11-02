@@ -26,6 +26,17 @@ const showUsernameOnNavbar = () => {
     }
 }
 
-export { showUsernameOnNavbar }
+const renderTopBarMenus = async () => {
+    const topBarList = document.querySelector('.top-bar__right')
+    const response = await fetch(`http://localhost:4000/v1/menus/topbar`)
+    const topBarMenus = await response.json()
+    console.log(topBarMenus)
+    topBarList.innerHTML = ''
+    topBarMenus.slice(0, 7).map(menu => {
+        topBarList.innerHTML += `<li class="top-bar__item"><a href=${menu.href} class="top-bar__link">${menu.title}</a></li>`
+    })
+}
+
+export { showUsernameOnNavbar, renderTopBarMenus }
 
 

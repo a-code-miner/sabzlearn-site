@@ -1,5 +1,6 @@
-import { showUsernameOnNavbar } from './funcs/shared.js'
+import { showUsernameOnNavbar, renderTopBarMenus } from './funcs/shared.js'
 
 window.addEventListener('load', () => {
     showUsernameOnNavbar()
+    renderTopBarMenus()
 })
