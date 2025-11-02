@@ -32,7 +32,8 @@ const renderTopBarMenus = async () => {
     const topBarMenus = await response.json()
     console.log(topBarMenus)
     topBarList.innerHTML = ''
-    topBarMenus.slice(0, 7).map(menu => {
+    const shuffledArray = topBarMenus.sort((a, b) => 0.5 - Math.random())
+    shuffledArray.slice(0, 7).map(menu => {
         topBarList.innerHTML += `<li class="top-bar__item"><a href=${menu.href} class="top-bar__link">${menu.title}</a></li>`
     })
 }
