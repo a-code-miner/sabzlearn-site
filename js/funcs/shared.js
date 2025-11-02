@@ -38,6 +38,53 @@ const renderTopBarMenus = async () => {
     })
 }
 
-export { showUsernameOnNavbar, renderTopBarMenus }
+const getAndShowAllCourses = async () => {
+    const coursesContainer = document.querySelector('#courses-container')
+    const response = await fetch(`http://localhost:4000/v1/courses`)
+    const courses = await response.json()
+    coursesContainer.innerHTML = ''
+    courses.slice(0, 6).map((course) => {
+        coursesContainer.insertAdjacentHTML('beforeend', `
+                <div class="col-4">
+                            <div class="course-box">
+                                <a href="#">
+                                    <img src="images/courses/jango.png" alt="Course Image" class="course-box__img">
+                                </a>
+                                <div class="course-box__main">
+                                    <a class="course-box__title" href="#">${course.name}</a>
+                                    <div class="course-box__rating-teacher">
+                                        <div class="course-box__teacher">
+                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
+                                            <a href="#" class="course-box__teacher-link">${course.creator}</a>
+                                        </div>
+                                        <div class="course-box__rating">
+                                            <img src="images/svgs/star.svg" alt="rating" class="course-box__star">
+                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                        </div>
+                                    </div>
+                                    <div class="course-box__status">
+                                        <div class="course-box__users">
+                                            <i class="fas fa-users course-box__users-icon"></i>
+                                            <span class="course-box__users-count">${course.registers}</span>
+                                        </div>
+                                        <span class="course-box__price">${course.price === 0 ? 'رایگان' : course.price.toLocaleString()}</span>
+                                    </div>
+                                </div>
+                                <div class="course-box__footer">
+                                    <a href="#" class="course-box__footer-link">مشاهده اطلاعات</a>
+                                    <i class="fas fa-arrow-left course-box__footer-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+            `)
+    })
+
+    return courses
+}
+
+export { showUsernameOnNavbar, renderTopBarMenus, getAndShowAllCourses }
 
 
