@@ -1,4 +1,4 @@
-import { getAndShowAllCourses, getAndShowAllPopularCourses, getAndShowArticles, getAndShowPresellCourses } from "./funcs/shared.js"
+import { getAndShowAllCourses, getAndShowAllPopularCourses, getAndShowArticles, getAndShowNavbarMenus, getAndShowPresellCourses } from "./funcs/shared.js"
 
 const $ = document
 const landingTitle = $.querySelector('.landing__title')
@@ -21,7 +21,8 @@ window.addEventListener('load', () => {
     getAndShowAllCourses()
     getAndShowAllPopularCourses()
     getAndShowPresellCourses()
-    getAndShowArticles().then(data => console.log(data))
+    getAndShowArticles()
+    getAndShowNavbarMenus().then(data => console.log('navbar menus: ', data))
 })
 
 function typeWriter(text, index) {

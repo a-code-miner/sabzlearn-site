@@ -1,5 +1,5 @@
 import { getMe } from "./auth.js"
-import { getToken } from "./utils.js"
+import { getToken, getUrlParam } from "./utils.js"
 
 const showUsernameOnNavbar = () => {
     const token = getToken()
@@ -231,13 +231,47 @@ const getAndShowArticles = async () => {
     return articles
 }
 
+const getAndShowNavbarMenus = async () => {
+    const menusWrapper = document.querySelector('#menus-wrapper')
+    const response = await fetch(`http://localhost:4000/v1/menus`)
+    const menus = await response.json()
+    menus.forEach((menu) => (
+        menusWrapper.insertAdjacentHTML('beforeend', `
+                <li class="main-header__item">
+        <a href=category.html?cat=${menu.href} class="main-header__link">${menu.title}
+            ${menu.submenus.length !== 0 ? `
+            <i class="fas fa-angle-down main-header__link-icon"></i>
+            <ul class="main-header__dropdown">
+                ${menu.submenus.map(submenu => (
+            `<li class="main-header__dropdown-item">
+                    <a class="main-header__dropdown-link" href="#">${submenu.title}</a>
+                </li>`
+        )).join('')}
+        </ul>
+        ` : ''}
+    </a>
+</li>
+            `)
+    ))
+    return menus
+}
+
+const getAndShowCategoryCourses = async () => {
+    const categoryName = getUrlParam('cat')
+    const response = await fetch(`http://localhost:4000/v1/courses/category/${categoryName}`)
+    const courses = await response.json()
+    return courses
+}
+
 export {
     showUsernameOnNavbar,
     renderTopBarMenus,
     getAndShowAllCourses,
     getAndShowAllPopularCourses,
     getAndShowPresellCourses,
-    getAndShowArticles
+    getAndShowArticles,
+    getAndShowNavbarMenus,
+    getAndShowCategoryCourses,
 }
 
 
