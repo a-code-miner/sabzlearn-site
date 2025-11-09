@@ -6,6 +6,8 @@ window.addEventListener('load', () => {
         const categoryCoursesWrapper = document.querySelector('#category-courses-wrapper')
         let coursesShowType = 'row'
         const coursesShowTypeIcons = document.querySelectorAll('.courses-top-bar__icon-parent')
+        const coursesFilteringSelections = document.querySelectorAll('.courses-top-bar__selection-item')
+        const selectionTitleElem = document.querySelector('.courses-top-bar__selection-title')
 
         // Show category courses By row showType
         if (courses.length) {
@@ -18,6 +20,7 @@ window.addEventListener('load', () => {
             `)
         }
 
+        // Show category courses By row showType (User selection)
         coursesShowTypeIcons.forEach(coursesShowTypeIcon => {
             coursesShowTypeIcon.addEventListener('click', (event) => {
                 coursesShowTypeIcons.forEach(icon => icon.classList.remove('courses-top-bar__icon--active'))
@@ -31,5 +34,18 @@ window.addEventListener('load', () => {
                 }
             })
         })
+
+        coursesFilteringSelections.forEach(coursesFilteringSelection => {
+            coursesFilteringSelection.addEventListener('click', (event) => {
+                coursesFilteringSelections.forEach(selectionElem => selectionElem.classList.remove('courses-top-bar__selection-item--active'))
+                event.target.classList.add('courses-top-bar__selection-item--active')
+                selectionTitleElem.innerHTML = ''
+                selectionTitleElem.insertAdjacentHTML('beforeend', `
+                            ${event.target.innerHTML}
+                            <i class="fas fa-angle-down courses-top-bar__selection-icon"></i>
+                    `)
+            })
+        })
+
     })
 })
