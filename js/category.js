@@ -1,4 +1,4 @@
-import { getAndShowCategoryCourses, insertCourseBoxHTMLTemplate } from "./funcs/shared.js";
+import { getAndShowCategoryCourses, insertCourseBoxHTMLTemplate, coursesSorting } from "./funcs/shared.js";
 
 window.addEventListener('load', () => {
     getAndShowCategoryCourses().then(responseCourses => {
@@ -44,6 +44,9 @@ window.addEventListener('load', () => {
                             ${event.target.innerHTML}
                             <i class="fas fa-angle-down courses-top-bar__selection-icon"></i>
                     `)
+                let userFilteringSelection = event.target.dataset.key
+                let shownCourses = coursesSorting([...courses], userFilteringSelection)
+                insertCourseBoxHTMLTemplate(shownCourses, coursesShowType, categoryCoursesWrapper)
             })
         })
 
