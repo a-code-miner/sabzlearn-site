@@ -55,7 +55,16 @@ window.addEventListener('load', () => {
         // Handle courses search input
         coursesSearchInput.addEventListener('input', (event) => {
             const shownCourses = searchInArray([...responseCourses], 'name', event.target.value)
-            insertCourseBoxHTMLTemplate(shownCourses, coursesShowType, categoryCoursesWrapper)
+            if (shownCourses.length) {
+                insertCourseBoxHTMLTemplate(shownCourses, coursesShowType, categoryCoursesWrapper)
+            } else {
+                categoryCoursesWrapper.innerHTML = ''
+                categoryCoursesWrapper.insertAdjacentHTML('beforeend', `
+                <div class="alert alert-danger">
+                    هیچ دوره‌ای برای جستجوی شما وجود ندارد.
+                </div>
+            `)
+            }
         })
     })
 })
