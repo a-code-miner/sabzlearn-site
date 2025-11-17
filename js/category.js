@@ -1,4 +1,5 @@
 import { getAndShowCategoryCourses, insertCourseBoxHTMLTemplate, coursesSorting } from "./funcs/shared.js";
+import { searchInArray } from "./funcs/utils.js";
 
 window.addEventListener('load', () => {
     getAndShowCategoryCourses().then(responseCourses => {
@@ -8,6 +9,7 @@ window.addEventListener('load', () => {
         const coursesShowTypeIcons = document.querySelectorAll('.courses-top-bar__icon-parent')
         const coursesFilteringSelections = document.querySelectorAll('.courses-top-bar__selection-item')
         const selectionTitleElem = document.querySelector('.courses-top-bar__selection-title')
+        const coursesSearchInput = document.querySelector('.courses-top-bar__input')
 
         // Show category courses By row showType
         if (courses.length) {
@@ -50,5 +52,10 @@ window.addEventListener('load', () => {
             })
         })
 
+        // Handle courses search input
+        coursesSearchInput.addEventListener('input', (event) => {
+            const shownCourses = searchInArray([...responseCourses], 'name', event.target.value)
+            insertCourseBoxHTMLTemplate(shownCourses, coursesShowType, categoryCoursesWrapper)
+        })
     })
 })
